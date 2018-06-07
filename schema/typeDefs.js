@@ -6,12 +6,19 @@ const typeDefs = `
     movies(query: String!): [Movie]
     config: Config
     movie(id: Int!): Movie
+    popular: [Movie]
   }
   type Movie @cacheControl(maxAge: 3600) {
     id: Int
     title: String
+    original_title: String
+    release_date: String
     poster_path: String
+    backdrop_path: String
     overview: String
+  }
+  extend type Movie {
+    relatedMovies: [String!]
   }
   type Images @cacheControl(maxAge: 3600) {
     poster_sizes: [String]

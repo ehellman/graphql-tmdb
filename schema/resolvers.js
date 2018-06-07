@@ -29,6 +29,29 @@ const resolvers = {
           context.secrets.TMDB_API_KEY
         }`
       ).then(res => res.json())
+    },
+    popular: (root, args, context) => {
+      return fetch(
+          `${TMDB_API_PATH}/movie/popular/?api_key=${
+          context.secrets.TMDB_API_KEY
+        }`
+        )
+        .then(res => res.json())
+        .then(({
+          results
+        }) => results)
+        .catch(err => err)
+    }
+  },
+  Movie: {
+    relatedMovies: (root, args, context) => {
+      console.log(root)
+      return [
+        "3214",
+        true,
+        4222
+      ]
+      // retun fetch('api').then(d => d.json())
     }
   }
 }
