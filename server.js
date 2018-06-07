@@ -83,7 +83,7 @@ const engine = new ApolloEngine({
 
 
 // Listen for connections
-const PORT = process.env.PORT || 1234
+const PORT = process.env.PORT || 4321
 // Apollo Engine
 engine.listen({
     port: PORT,
